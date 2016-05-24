@@ -1,0 +1,32 @@
+<body>
+    <div class="container">
+    <header>
+      <h1>Todo List</h1>
+        
+<!--skal bruges med ReactiveDict 
+
+        <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>(meteor add reactive-dict)-->
+        
+        
+<label class="hide-completed">
+    <input type="checkbox" ng-model="$ctrl.hideCompleted"/>
+    Hide Completed Tasks
+  </label>
+      
+<!--formularen: Event handler for submitform er i body.js. via CSS selector .new-task-->
+       <form class="new-task" ng-submit="$ctrl.addTask($ctrl.newTask)">
+    <input ng-model="$ctrl.newTask" type="text" name="text" placeholder="Type to add new tasks"/>
+  </form>
+    </header>
+ 
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
